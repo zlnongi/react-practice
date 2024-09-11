@@ -1,59 +1,44 @@
 import React, { useState } from "react";
 
 function App() {
-  const [pro, setPro] = useState(["주술회전", "흑집사", "포켓몬"]);
-  const [modal, setModal] = useState(false);
-  const [title, setTitle] = useState(0);
-  const [input, setInput] = useState("");
+  const [data, setData] = useState("test");
+
+  function dataChange() {
+    setData("testChange");
+  }
+
+  function dataChange1() {
+    setData("testChange1");
+  }
+
+  return (
+    <div style={{ background: "pink", padding: "10px" }}>
+      App
+      <SubCom1 data={data} dataMode1={dataChange} dataMode2={dataChange1} />
+    </div>
+  );
+}
+
+function SubCom1(props) {
   return (
     <>
-      <div>App </div>
-      {pro.map((item, i) => {
-        return (
-          <div
-            key={i}
-            onClick={() => {
-              setModal(true);
-              setTitle(i);
-            }}
-          >
-            {item}
-          </div>
-        );
-      })}
-
-      <input
-        onChange={(e) => {
-          setInput(e.target.value);
-        }}
-        value={input}
-      />
-
-      <button
-        onClick={() => {
-          let copy = [...pro]; // 복사해줌
-          copy.push(input);
-          setPro(copy);
-          setInput("");
-        }}
-      >
-        애니 넣기
-      </button>
-      <p>{input}</p>
-
-      {modal == true ? <Modal pro={pro} title={title} /> : null}
+      <div style={{ background: "skyblue", padding: "10px" }}>
+        <h3>subcom1</h3>
+        <p>{props.data}</p>
+        <button onClick={props.dataMode1}>변경1</button>
+        <SubCom2 sData={props.data} sdataMode2={props.dataMode2} />
+      </div>
     </>
   );
 }
 
-function Modal(props) {
+function SubCom2(props) {
   return (
     <>
-      <div className="modalWrap">
-        <div className="modal">
-          <h3>title {props.pro[props.title]}</h3>
-          <p>상세설명</p>
-        </div>
+      <div style={{ background: "green" }}>
+        <h3>subcom2</h3>
+        <p>{props.sData}</p>
+        <button onClick={props.sdataMode2}>변경2</button>
       </div>
     </>
   );
