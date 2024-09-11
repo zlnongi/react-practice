@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  width: 1000px;
+  margin: 0 auto;
+  background-color: skyblue;
+}
+
+.btn {
+  width: 100px;
+  padding: 10px;
+  background-color: skyblue;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  color: white;
+}
+.btn.btn-primary {
+  background: blue;
+}
+.btn.btn-info {
+  background: green;
+}
